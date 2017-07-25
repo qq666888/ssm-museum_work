@@ -1,4 +1,4 @@
-package ssm.util;
+package mw.demo.util;
 
 /**
  * Created by mingfei.net@gmail.com

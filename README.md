@@ -30,8 +30,8 @@
         - ssm.controller
         - ssm.dao.impl
         - ssm.service.impl
-12. Create ssm.controller.BaseController class
-13. Create ssm.model.BaseModel class
+12. Create BaseController class
+13. Create BaseModel class
 14. Create commons/inc.jsp
 15. Create webapp/assets directory
 16. Create util.Constant interface
@@ -58,4 +58,4 @@
         - add.ftl
         - list.ftl
         - edit.ftl
-26. Create ssm.util.ComponentGenerator class
+26. Create ComponentGenerator class

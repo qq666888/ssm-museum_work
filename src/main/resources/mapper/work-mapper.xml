@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work">
+    <insert id="create" parameterType="work" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_mw.work (
+            title, 
+            picture, 
+            artist, 
+            year, 
+            museumId
+        )
+        VALUES (
+            #{title}, 
+            #{picture}, 
+            #{artist}, 
+            #{year}, 
+            #{museumId}
+        )
+    </insert>
+    <delete id="remove">
+        DELETE FROM db_mw.work
+        WHERE work.id = #{id}
+    </delete>
+    <update id="modify">
+        UPDATE db_mw.work
+        SET
+            title = #{title}, 
+            picture = #{picture}, 
+            artist = #{artist}, 
+            year = #{year}, 
+            museumId = #{museumId}
+        WHERE work.id = #{id}
+    </update>
+    <select id="queryAll" resultType="work">
+        SELECT *
+        FROM db_mw.work
+        ORDER BY id
+    </select>
+    <select id="queryById" resultType="work">
+        SELECT *
+        FROM db_mw.work
+        WHERE work.id = #{id}
+    </select>
+</mapper>

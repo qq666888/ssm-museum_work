@@ -1,4 +1,4 @@
-package ssm.model;
+package mw.demo.model;
 
 import java.io.Serializable;
 

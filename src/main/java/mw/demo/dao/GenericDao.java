@@ -1,15 +1,15 @@
-package ssm.service;
+package mw.demo.dao;
 
-import ssm.util.Pagination;
+import mw.demo.util.Pagination;
 
 import java.io.Serializable;
 
 /**
  * Created by mingfei.net@gmail.com
- * 7/22/17 10:27
+ * 7/22/17 09:47
  * https://github.com/thu/ssm/
  */
-public interface GenericService<T extends Serializable, ID extends Number> {
+public interface GenericDao<T extends Serializable, ID extends Number> {
 
     void create(T t);
 
