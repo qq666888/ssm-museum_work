@@ -42,7 +42,7 @@
         WHERE museum.id = #{id}
     </select>
 
-    <resultMap id="queryWorks_map" type="museum">
+    <resultMap id="queryMuseums_map" type="museum">
         <result property="name" column="name"/>
         <result property="logo" column="logo"/>
         <result property="picture" column="picture"/>
@@ -51,7 +51,7 @@
             <result property="title" column="title"/>
         </collection>
     </resultMap>
-    <select id="queryWorks" resultMap="queryWorks_map">
+    <select id="queryMuseums" resultMap="queryMuseums_map">
         SELECT
             m.name,
             m.logo,

@@ -52,4 +52,16 @@ public class WorkController extends BaseController {
         session.setAttribute("work", workService.queryById(id));
         return "redirect:/work/edit.jsp";
     }
-}
+
+    @RequestMapping("queryWorks/{currentPage}")
+    private String queryWorks(@PathVariable int currentPage) {
+        session.setAttribute("pagination", workService.query("queryWorks", null, currentPage));
+        return "redirect:/work/works.jsp";
+    }
+
+
+    @RequestMapping("queryWorks")
+    private String queryWorks() {
+        return queryWorks(1);
+    }
+    }

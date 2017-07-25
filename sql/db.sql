@@ -40,3 +40,12 @@ FROM db_mw.museum;
 
 SELECT *
 FROM db_mw.work;
+
+SELECT
+  w.title,
+  w.picture,
+  w.artist,
+  w.year,
+  m.name
+FROM db_mw.work w LEFT OUTER JOIN db_mw.museum m
+    ON w.museumId = m.id;

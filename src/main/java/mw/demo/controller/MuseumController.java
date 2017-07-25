@@ -53,14 +53,14 @@ public class MuseumController extends BaseController {
         return "redirect:/museum/edit.jsp";
     }
 
-    @RequestMapping("queryWorks/{currentPage}")
-    private String queryWorks(@PathVariable int currentPage) {
-        session.setAttribute("museums", museumService.query("queryWorks", null, currentPage));
+    @RequestMapping("queryMuseums/{currentPage}")
+    private String queryMuseums(@PathVariable int currentPage) {
+        session.setAttribute("pagination", museumService.query("queryMuseums", null, currentPage));
         return "redirect:/museum/museums.jsp";
     }
 
-    @RequestMapping("queryWorks")
-    private String queryWorks() {
-        return queryWorks(1);
+    @RequestMapping("queryMuseums")
+    private String queryMuseums() {
+        return queryMuseums(1);
     }
 }

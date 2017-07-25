@@ -9,11 +9,13 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Work extends BaseModel {
+public class Work extends BaseModel { // 多端
     private Integer id;
     private String title;
     private String picture;
     private String artist;
     private int year;
     private int museumId;
+
+    private Museum museum; // 一端
 }
