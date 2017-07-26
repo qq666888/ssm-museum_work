@@ -6,5 +6,5 @@ package mw.demo.util;
  * https://github.com/thu/ssm/
  */
 public interface Constant {
-    int PAGE_SIZE = 3;
+    int PAGE_SIZE = 1;
 }

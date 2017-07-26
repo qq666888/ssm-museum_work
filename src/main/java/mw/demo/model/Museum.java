@@ -11,12 +11,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Museum extends BaseModel {
+public class Museum extends BaseModel { // 一端
     private Integer id;
     private String name;
     private String logo;
     private String picture;
     private String address;
 
-    private List<Work> works;
+    private List<Work> works; // 多端
 }

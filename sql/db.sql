@@ -38,6 +38,8 @@ REFERENCES db_mw.museum (id);
 SELECT *
 FROM db_mw.museum;
 
+INSERT INTO db_mw.work VALUES (NULL, 't3', 't4.jpg', 'a4', 1944, NULL);
+
 SELECT *
 FROM db_mw.work;
 
