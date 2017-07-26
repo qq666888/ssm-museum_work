@@ -10,6 +10,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>${sessionScope.pagination.list}</h1>
 <table border="1">
     <tr>
         <th>COUNT</th>
