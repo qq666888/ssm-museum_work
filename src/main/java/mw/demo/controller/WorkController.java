@@ -1,11 +1,18 @@
 package mw.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
 import mw.demo.model.Work;
 import mw.demo.service.WorkService;
+import mw.demo.util.Constant;
+import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("work")
@@ -18,8 +25,26 @@ public class WorkController extends BaseController {
         this.workService = workService;
     }
 
+    private static String getPhotoFileName() {
+        return Long.toString(System.nanoTime());
+    }
+
+    public void main(String[] args) {
+        System.out.println(getPhotoFileName());
+    }
+
     @RequestMapping("create")
-    private String create(Work work) {
+    private String create(Work work, @RequestParam MultipartFile pictureFile) {
+        String photoPath = application.getRealPath(Constant.UPLOAD_PHOTO_PATH);
+        String photoFileName = getPhotoFileName();
+        String originalFileName = pictureFile.getOriginalFilename();
+        String extName = FilenameUtils.getExtension(originalFileName);
+        try {
+            pictureFile.transferTo(new File(photoPath, photoFileName.concat("." + extName)));
+            work.setPicture(photoFileName.concat("." + extName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         workService.create(work);
         return "redirect:/work/queryAll";
     }
@@ -64,4 +89,4 @@ public class WorkController extends BaseController {
     private String queryWorks() {
         return queryWorks(1);
     }
-    }
+}
